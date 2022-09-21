@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    </head>
+    <body class="container mt-3">
+        <div class="alert alert-info display-1 text-center">
+            <img src="{%static "image/logo.png" %}"  style="width: 140px; height: 90px">
+            DJANGO SHOP
+        </div>
+        <div class="alert alert-secondary display-5 text-center"> {{data.0.categoria}}</div>
+
+        <div class="row">
+            {% for item in data %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                 <img src="{%static item.img %}" class="card-img-top" style="width: 286px; height: 240px">
+                    <div class="card-body">
+                    <h5 class="card-title">{{item.nombre}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Descripcion: {{item.desc}}</li>
+                    <li class="list-group-item">Precio : ${{item.precio}}</li>
+                    </ul>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="p-2 bg-light border opacity-0 "></div>
+        <div>
+            <a class="btn btn-primary btn-lg" href="/" >Volver</a>
+        </div>
+    </body>
+</html>
